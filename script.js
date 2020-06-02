@@ -1,4 +1,4 @@
-// //PAROLA PALINDROMA SENZA FUNZIONE
+//PAROLA PALINDROMA SENZA FUNZIONE
 
 var parola = prompt("inserisci la parola");
 console.log("la parola inserita è " + parola);
@@ -10,8 +10,8 @@ if (parola == palindroma) {
 }else{
   console.log("la parola NON è palindroma");
 }
-//
-// // CON FUNZIONE 1
+
+// CON FUNZIONE 1
 
 var parola = prompt("inserisci una parola");
 console.log("parola iniziale: " + parola);
@@ -29,8 +29,8 @@ function parolaPalindroma(str){
   }
 
 };
-//
-// // CON FUNZIONE 2
+
+// CON FUNZIONE 2
 
 function parolaPalindroma(){
 
@@ -59,15 +59,14 @@ parolaPalindroma();
 // Dichiariamo chi ha vinto.
 
 
-// funzione 1
-function pariDispari() {
+// FUNZIONE 1
+function pariDispari(sceltaParidispari,numero) {
   var utenteScelta = prompt("scegli pari o dispari");
   console.log("l'utente sceglie " + utenteScelta);
 
   while ( !(utenteScelta =="pari") && !(utenteScelta=="dispari" ) ) {
     var utenteScelta = prompt("ERRORE,scegli pari o dispari");
     console.log("l'utente sceglie " + utenteScelta);
-
   }
 
   var utenteNumero = parseInt( prompt("scegli un numero da 1 a 5") );
@@ -100,3 +99,40 @@ function pariDispari() {
   }
 };
 pariDispari();
+
+
+// FUNZIONE 2
+
+//par 1
+var utenteScelta = prompt("scegli pari o dispari");
+//par 2
+var utenteNumero = parseInt( prompt("scegli un numero da 1 a 5") );
+​
+// struttura funzione con parametri "standard,all'intenro della funzione"
+function pariDispari(scelta, numero) {
+  while ( !(scelta =="pari") && !(scelta=="dispari" ) ) {
+    var scelta = prompt("ERRORE,scegli pari o dispari");
+  }
+  while ( isNaN(numero) || (numero > 5 ) || ( numero <= 0) ) {
+    var numero = parseInt( prompt("ERRORE,scegli un numero da 1 a 5") );
+  }
+  var cpu = Math.floor((Math.random() * 5) + 1);
+  var somma = numero + cpu;
+
+  if (scelta == "pari" && somma % 2==0) {
+    document.writeln("<h3>" + "hai scelto " + scelta + "," + "il numero che hai scelto è " + numero +"," + "il computer ha scelto "
+    + cpu + ", la somma è " + somma +", " + "HAI VINTO" + "</h3>");
+  }else if (scelta == "dispari" && somma % 2==1) {
+    document.writeln("<h3>"+ "hai scelto " + scelta + ","  + "il numero che hai scelto è " + numero + "," + "il computer ha scelto "
+    + cpu + ", la somma è " + somma + ", " + "HAI VINTO" + "</h3>");
+  }else if(scelta == "pari" && somma % 2==1){
+    document.writeln("<h3>" + "hai scelto " + scelta + "," + "il numero che hai scelto è " + numero + "," + "il computer ha scelto "
+    + cpu + ", la somma è " + somma +", " + "VINCE IL COMPUTER" + "</h3>");
+  }else if (scelta == "dispari" && somma % 2==0) {
+    document.writeln("<h3>" + "hai scelto " + scelta + "," + "il numero che hai scelto è " + numero + "," + "il computer ha scelto "
+    + cpu + ", la somma è " + somma +", " + "VINCE IL COMPUTER" + "</h3>");
+  }
+};
+​
+// funzione con parametri reali
+pariDispari(utenteScelta, utenteNumero);
